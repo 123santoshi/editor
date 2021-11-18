@@ -1,0 +1,72 @@
+<html>
+<head>
+	<title>EDITOR</title>
+	<style>
+		body{
+			background:fuchsia;}
+		div{
+			display:flex;
+			}
+		textarea{
+			width:100%;
+			height:20%;}
+		#htmlcode,#csscode,#jscode{
+			width:100%;
+			height:50%;
+			border:2px solid black;
+			}
+		#output{
+			margin-left:3;
+			border:2px solid black;
+			width:100%;
+			height:156%;
+			background:white;}
+		label{
+			border:2px solid red;
+			margin:2;
+			font-weight:bold;
+			background:yellow;
+			text-align:center;
+			margin-left:40%;
+			}
+		#htmlcode:hover,#csscode:hover,#jscode:hover,#output:hover{
+			background:grey;
+			color:white;
+			}
+		.two{
+			border:2px solid red;
+			background:pink;
+			padding:1;
+			margin-left:50%;}
+		
+			
+
+	</style>
+</head>
+<body>
+<div class="one">
+	<nav>
+	<label>HTML CODE</label>
+	<textarea id="htmlcode" rows="10" columns="10" oninput=fun()></textarea>
+	<label>CSS CODE</label>
+	<textarea id="csscode" rows="10" columns="10" oninput=fun()></textarea>
+	<label>JS CODE</label>
+	<textarea id="jscode" rows="10" columns="10" oninput=fun()></textarea>
+	</nav>
+	<nav>
+	<label>OUTPUT SCREEN</label>
+	<iframe id="output">CODE CHECKING</iframe>
+	</nav>
+</div>
+	<script>
+		function fun(){
+			var h=document.getElementById("htmlcode").value;
+			var c="<style>"+document.getElementById("csscode").value+"</style>";
+			var j="<scri"+"pt>"+document.getElementById("jscode").value+"</scri"+"pt>";
+			var o=document.getElementById("output").contentWindow.document;
+			o.open();
+			o.write(h+c+j);}
+	</script>
+
+</body>
+</html>
